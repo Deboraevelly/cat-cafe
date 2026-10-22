@@ -55,7 +55,7 @@ def ler_arquivo(caminho):
 
 def main():
     print("=" * 65)
-    print("  CAT CAFÉ TERMINAL - Café com Bigodes 🐾")
+    print("  CAT CAFÉ TERMINAL - Café com Bigodes")
     print("  Converse livremente, ensine dados, agende mesas ou informe arquivos (.pdf, .csv, .json)")
     print("  Digite 'sair' para encerrar a sessão.")
     print("=" * 65 + "\n")
@@ -68,7 +68,7 @@ def main():
                 continue
             
             if entrada.lower() in ["sair", "exit", "quit"]:
-                print("\nEncerrando terminal do Cat Café... Até logo! 🐾")
+                print("\nEncerrando terminal do Cat Café... Até logo! ")
                 break
 
             prompt_final = entrada
