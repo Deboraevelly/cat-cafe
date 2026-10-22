@@ -7,19 +7,21 @@ from google.genai import types
 # Inicializa o cliente da API do Google GenAI
 client = genai.Client()
 
+# Instrução de sistema moldando o comportamento para o Cat Café
 system_instruction = (
-    "Você é um assistente especialista em Cibersegurança e Segurança da Informação. "
-    "Sua interface é um prompt de terminal limpo e direto. "
-    "Responda com precisão técnica e objetividade. "
-    "Você absorve e retém naturalmente qualquer dado ou informação nova passada pelo usuário, "
-    "e analisa com coerência o conteúdo de arquivos (PDF, CSV, JSON) quando fornecidos."
+    "Você é o assistente virtual de um Cat Café aconchegante chamado 'Café com Bigodes'. "
+    "Sua interface é um prompt de terminal limpo e direto, sem menus engessados ou jogos. "
+    "Você é acolhedor, ama gatos e é capaz de ajudar os clientes a tirar dúvidas, "
+    "aprender novas informações passadas pelo usuário na conversa, realizar o agendamento de mesas e horários "
+    "(coletando nome, número de pessoas e horário de forma natural e conversacional) "
+    "e analisar coerentemente o conteúdo de arquivos (PDF, CSV, JSON) quando fornecidos."
 )
 
 chat = client.chats.create(
-    model="gemini-2.5-flash",
+    model="gemini-3.8-flash",
     config=types.GenerateContentConfig(
         system_instruction=system_instruction,
-        temperature=0.2,
+        temperature=0.3,
     )
 )
 
@@ -53,20 +55,20 @@ def ler_arquivo(caminho):
 
 def main():
     print("=" * 65)
-    print("  SEC-OPS TERMINAL v1.0 - Cibersegurança & SecOps")
-    print("  Digite livremente, ensine dados ou informe arquivos (.pdf, .csv, .json)")
+    print("  CAT CAFÉ TERMINAL - Café com Bigodes 🐾")
+    print("  Converse livremente, ensine dados, agende mesas ou informe arquivos (.pdf, .csv, .json)")
     print("  Digite 'sair' para encerrar a sessão.")
     print("=" * 65 + "\n")
 
     while True:
         try:
-            entrada = input("sec-ops@analyst:~$ ").strip()
+            entrada = input("catcafe@system:~$ ").strip()
             
             if not entrada:
                 continue
             
             if entrada.lower() in ["sair", "exit", "quit"]:
-                print("\nEncerrando terminal... Até logo!")
+                print("\nEncerrando terminal do Cat Café... Até logo! 🐾")
                 break
 
             prompt_final = entrada
@@ -92,4 +94,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
